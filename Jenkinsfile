@@ -9,10 +9,6 @@ pipeline{
               sh "mvn clean package"
             }
         }
-
-
-
-
         stage('build docker image'){
         	steps{
        			 sh 'docker build -t prashk7/my-app .'
@@ -29,8 +25,6 @@ pipeline{
         	
         	}
     	}
-    	
-    	
     	stage('Run container on Docker server'){
         	steps{
         	  sh 'docker run -p 8083:8083 -t prashk7/my-app'
